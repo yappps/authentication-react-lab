@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { isAuthenticated } from "./utils/AuthService";
 import "./PrivilegedComponent.css";
 
 class PrivilegedComponent extends Component {
@@ -11,11 +12,10 @@ class PrivilegedComponent extends Component {
   }
 
   render() {
-    console.log(this.state.data);
     return (
       <div className="privileged-content-body">
         <h2>Privileged Content</h2>
-        {this.props.isAuthenticated ? (
+        {isAuthenticated() ? (
           <h3>here's your privileged content</h3>
         ) : (
           <h3>please log in to see privileged content</h3>
@@ -30,7 +30,7 @@ class PrivilegedComponent extends Component {
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
-        Authorization: "Token " + localStorage.getItem("token")
+        Authorization: "Token " + sessionStorage.accessToken
       }
     })
       .then(data => data.json())
