@@ -30,7 +30,7 @@ class PrivilegedComponent extends Component {
       headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
-        Authorization: "Token " + localStorage.getItem("token")
+        Authorization: "Token " + sessionStorage.getItem("token")
       }
     })
       .then(data => data.json())

@@ -75,7 +75,7 @@ class AuthenticationForm extends Component {
     )
       .then(data => data.json())
       .then(data => {
-        localStorage.setItem("token", data.user.token);
+        sessionStorage.setItem("token", data.user.token);
       })
       .catch(err => console.log(err));
 
