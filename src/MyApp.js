@@ -18,16 +18,21 @@ class MyApp extends Component {
         />
         <Route
           path="/signup"
-          render={() => (
-            <AuthenticationForm title="Sign up" auth_endpoint="/api/users" />
+          render={props => (
+            <AuthenticationForm
+              title="Sign up"
+              auth_endpoint="/api/users"
+              {...props}
+            />
           )}
         />
         <Route
           path="/signin"
-          render={() => (
+          render={props => (
             <AuthenticationForm
               title="Sign in"
               auth_endpoint="/api/users/login"
+              {...props}
             />
           )}
         />

@@ -12,6 +12,7 @@ class AuthenticationForm extends Component {
   }
 
   render() {
+    console.log(this.props);
     return (
       <div className="authentication-form">
         <h2>{this.props.title}</h2>
@@ -76,7 +77,8 @@ class AuthenticationForm extends Component {
       .then(data => data.json())
       .then(data => {
         sessionStorage.accessToken = data.user.token;
-        window.location.href = "/";
+        console.log(this.props.history);
+        this.props.history.push("/");
       })
       .catch(err => console.log(err));
 
